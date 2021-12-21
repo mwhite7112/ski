@@ -5,7 +5,7 @@ import webscraper
 
 #top level application
 
-def runApp():
+def runApp(name: str, email: str):
     while True:
         #time guard
         now = datetime.now()
@@ -18,10 +18,10 @@ def runApp():
 
             #make decently formatted email body
             subject = "Daily Resort Summary"
-            to = "mwhite7112@gmail.com"
+            to = email
             today = date.today()
             d = today.strftime("%B %d, %Y")
-            body = f"Hello Max, below is the report for {d}.\n\n\n\n"
+            body = f"Hello {name}, below is the report for {d}.\n\n\n\n"
             for resort in data:
                 conditions = data.get(resort)
                 snowfall = conditions.get("Last Snowfall")
@@ -35,6 +35,5 @@ def runApp():
 
 
 if __name__ == '__main__':
-    runApp()
+    runApp("Max", "mwhite7112@gmail.com")
 
-    
